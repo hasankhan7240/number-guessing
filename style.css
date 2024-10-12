@@ -1,0 +1,190 @@
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+/* Game Container Styles */
+.game-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 400px;
+  position: relative;
+  overflow: hidden; /* Prevent overflow */
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Adding a decorative image */
+.game-container::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background: url("https://source.unsplash.com/random/500x500?game") no-repeat
+    center center;
+  opacity: 0.1;
+  z-index: -1; /* Place it behind the container */
+}
+
+/* Heading Styles */
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Label Styles */
+label {
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Input and Select Styles */
+select,
+input {
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ff758c;
+  border-radius: 6px;
+  margin: 10px 0;
+  width: 100%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Input Focus Effects */
+select:focus,
+input:focus {
+  outline: none;
+  border-color: #ff7eb3;
+  box-shadow: 0 0 5px rgba(255, 118, 140, 0.5);
+}
+
+/* Button Styles */
+button {
+  background-color: #ff758c;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+/* Button Hover Effects */
+button:hover {
+  background-color: #ff7eb3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Winning and Losing Animation */
+.win {
+  color: #28a745; /* Green for winning */
+  font-weight: bold;
+  animation: bounce 0.5s ease; /* Add bounce animation */
+}
+
+.lose {
+  color: #dc3545; /* Red for losing */
+  font-weight: bold;
+  animation: shake 0.5s ease;
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Message Styles */
+.guesses,
+#remainingGuesses,
+.lowOrHi {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.lowOrHi {
+  font-size: 20px;
+  margin: 20px 0;
+  transition: color 0.3s;
+}
+
+/* Game Over Message Styles */
+#gameOverMessage {
+  margin-top: 20px;
+}
+
+/* New Game Button Styles */
+#newGame {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* New Game Button Hover Effects */
+#newGame:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .game-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  button,
+  select,
+  input {
+    padding: 10px;
+  }
+}
